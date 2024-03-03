@@ -7,7 +7,7 @@ import ResultPage from './ResultPage';
 import { QuizProvider } from './QuizContext';
 import LandingPage from './LandingPage';
 import './index.css';
-
+import Consultant from './Consultant';
 ReactDOM.render(
   <React.StrictMode>
     <QuizProvider>
@@ -16,6 +16,7 @@ ReactDOM.render(
           <Route path="/" element={<LandingPage />} />
           <Route path="/design" element={<App />} />
           <Route path="/results" element={<ResultPage />} />
+          <Route path="/consultant" element={<Consultant />} />
         </Routes>
       </Router>
     </QuizProvider>

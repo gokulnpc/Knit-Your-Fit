@@ -42,13 +42,7 @@ button {
   /* Adjust spacing between buttons if necessary */
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  /* Hide scrollbar */
-}
+
 
 .navigation-buttons {
   display: flex;
@@ -57,7 +51,9 @@ body {
   /* Adjust the width as necessary */
 }
 
-
+::-webkit-scrollbar {
+  display: none;
+}
 
 
 
