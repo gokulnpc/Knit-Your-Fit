@@ -6,12 +6,21 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #333;
+  /* background-color: #333; */
   color: white;
   font-family: 'Arial', sans-serif;
   padding: 20px;
   box-sizing: border-box;
   /* Make sure padding does not affect width */
+  background: linear-gradient(132deg, #FC415A, #591BC5, #212335);
+  background-size: 400% 400%;
+  animation: Gradient 15s ease infinite;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0px;
 }
 
 .back-button {
