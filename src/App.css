@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #000;
+  background-color: #333;
   color: white;
   font-family: 'Arial', sans-serif;
   padding: 20px;
@@ -57,7 +57,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-top: 20px;
+  background-color: #333;
 }
 
 .selected-option {
@@ -80,4 +80,126 @@ body {
   align-items: center;
   width: 100%;
   /* Set a specific width if necessary */
+}
+
+.qbuttonb {
+  width: 140px;
+  margin: 20px 10px;
+  color: black;
+  font-size: 17px;
+  border: 1px solid #EFEEF5;
+  font-weight: 500;
+  background: #EFEEF5;
+  border-radius: 20px;
+  padding: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.qbuttonb:hover {
+  background-color: black;
+  color: white;
+  border-radius: 0;
+}
+
+/* Add this to your CSS file */
+.selected-options-paragraph {
+  background-color: transparent;
+  /* Clear background */
+  color: white;
+  /* White text color */
+  margin-top: 20px;
+  /* Space from the top of the container */
+  text-align: center;
+  /* Center the text */
+  max-width: 40%;
+  /* Maximum width of the paragraph */
+  margin-left: auto;
+  /* Center the paragraph */
+  margin-right: auto;
+  /* Center the paragraph */
+  word-wrap: break-word;
+  /* Ensure long text wraps and doesn't overflow */
+}
+
+.image-container {
+  text-align: center;
+  /* Center the image */
+  margin: 20px 0;
+  /* Space above and below the image */
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  /* Stack buttons vertically */
+  align-items: center;
+  /* Center buttons horizontally */
+  /* margin-top: 10px; */
+  /* Space from the image */
+}
+
+.button-container button {
+  background-color: #00CCFF;
+  /* Bright blue background */
+  color: white;
+  /* White text color */
+  border: none;
+  /* No border */
+  margin: 10px 0;
+  /* Margin between buttons */
+  padding: 15px 30px;
+  /* Larger padding for a wider button */
+  font-size: 18px;
+  /* Font size */
+  cursor: pointer;
+  border-radius: 50px;
+  /* Fully rounded corners for buttons */
+  width: 80%;
+  /* Set a specific width */
+  max-width: 300px;
+  /* Maximum width of buttons */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Subtle shadow for depth */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.button-container button:hover {
+  background-color: white;
+  /* White background on hover */
+  color: #00CCFF;
+  /* Blue text color on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  /* Larger shadow on hover for 'lifting' effect */
+  transform: translateY(-2px);
+  /* Lift the button up slightly on hover */
+}
+
+.button-container button:active {
+  transform: translateY(1px);
+  /* Push the button down on click */
+}
+
+.refund-policy {
+  color: #aaa;
+  /* Grey text for less emphasis */
+  font-size: 14px;
+  /* Smaller font size for legal text */
+  text-align: center;
+  /* Center the text */
+  margin-top: 30px;
+  /* Space from the last button */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .selected-options-paragraph {
+    max-width: 90%;
+    /* Increase width on smaller screens */
+  }
+
+  .button-container button {
+    width: 90%;
+    /* Increase width on smaller screens */
+  }
 }

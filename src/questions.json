@@ -32,26 +32,6 @@
             "text": "Enter your Size",
             "options": [
                 {
-                    "value": "Sleeve length",
-                    "next": "maleColor",
-                    "prev": "maleClothing"
-                },
-                {
-                    "value": "Shoulder Length",
-                    "next": "maleColor",
-                    "prev": "maleClothing"
-                },
-                {
-                    "value": "Chest",
-                    "next": "maleColor",
-                    "prev": "maleClothing"
-                },
-                {
-                    "value": "Length of T-shirt",
-                    "next": "maleColor",
-                    "prev": "maleClothing"
-                },
-                {
                     "value": "S",
                     "next": "maleColor",
                     "prev": "maleClothing"

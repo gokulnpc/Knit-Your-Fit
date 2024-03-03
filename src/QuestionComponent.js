@@ -8,7 +8,7 @@ const QuestionComponent = ({ question, options, onOptionSelect }) => {
             <h2 className="question">{question}</h2> {/* Use the class name here */}
             <div className="options"> {/* Use the class name here */}
                 {options.map((option, index) => (
-                    <button key={index} onClick={() => onOptionSelect(option.value)}>
+                    <button className="qbutton" key={index} onClick={() => onOptionSelect(option.value)}>
                         {option.value}
                     </button>
                 ))}

@@ -1,0 +1,56 @@
+/* LandingPage.css */
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('./bg.jpg');
+    background-size: cover;
+}
+
+.landing-container h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.landing-container .button-container {
+    display: flex;
+    flex-direction: column;
+    /* Stack buttons vertically */
+    width: 100%;
+    /* Full width of container */
+    max-width: 25%;
+    /* Maximum width of buttons */
+    align-items: center;
+    /* Stretch button width */
+}
+
+.landing-container button {
+    background-color: black;
+    color: white;
+    margin: 10px 0;
+    /* Vertical spacing */
+    padding: 15px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.landing-container button:hover {
+    background-color: white;
+    color: black;
+}
+
+button:focus {
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .landing-container .button-container {
+        width: 80%;
+        /* Adjust width on smaller screens */
+    }
+}
