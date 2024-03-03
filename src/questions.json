@@ -1,0 +1,240 @@
+{
+    "questions": [
+        {
+            "id": "gender",
+            "text": "Choose your gender",
+            "options": [
+                {
+                    "value": "male",
+                    "next": "maleClothing"
+                },
+                {
+                    "value": "female",
+                    "next": "femaleClothing"
+                }
+            ]
+        },
+        {
+            "id": "maleClothing",
+            "text": "Choose Clothe",
+            "options": [
+                {
+                    "value": "Tshirt",
+                    "next": "maleSize"
+                }
+            ],
+            "conditionalOn": "gender",
+            "condition": "male"
+        },
+        {
+            "id": "maleSize",
+            "text": "Enter your Size",
+            "options": [
+                {
+                    "detail": "Sleeve length",
+                    "next": "maleColor"
+                },
+                {
+                    "detail": "Shoulder Length",
+                    "next": "maleColor"
+                },
+                {
+                    "detail": "Chest",
+                    "next": "maleColor"
+                },
+                {
+                    "detail": "Length of T-shirt",
+                    "next": "maleColor"
+                },
+                {
+                    "detail": "S",
+                    "next": "maleColor"
+                },
+                {
+                    "detail": "M",
+                    "next": "maleColor"
+                },
+                {
+                    "detail": "L",
+                    "next": "maleColor"
+                },
+                {
+                    "detail": "XL",
+                    "next": "maleColor"
+                }
+            ],
+            "conditionalOn": "maleClothing",
+            "condition": "Tshirt"
+        },
+        {
+            "id": "maleColor",
+            "text": "Choose color",
+            "options": [
+                {
+                    "value": "White",
+                    "next": "maleSleeveStyle"
+                }
+            ],
+            "conditionalOn": "maleSize"
+        },
+        {
+            "id": "maleSleeveStyle",
+            "text": "Choose sleeve style",
+            "options": [
+                {
+                    "value": "Half",
+                    "next": "maleNeckType"
+                },
+                {
+                    "value": "Full",
+                    "next": "maleNeckType"
+                }
+            ],
+            "conditionalOn": "maleColor"
+        },
+        {
+            "id": "maleNeckType",
+            "text": "Choose Neck type",
+            "options": [
+                {
+                    "value": "V neck",
+                    "next": "maleFabric"
+                },
+                {
+                    "value": "Polo",
+                    "next": "maleFabric"
+                },
+                {
+                    "value": "Crew neck",
+                    "next": "maleFabric"
+                },
+                {
+                    "value": "Round neck",
+                    "next": "maleFabric"
+                }
+            ],
+            "conditionalOn": "maleSleeveStyle"
+        },
+        {
+            "id": "maleFabric",
+            "text": "Choose fabric",
+            "options": [
+                {
+                    "value": "Blended cotton",
+                    "next": "maleDesignBlendedCotton"
+                },
+                {
+                    "value": "Polyester",
+                    "next": "maleDesignPolyester"
+                },
+                {
+                    "value": "Cotton",
+                    "next": "maleDesignCotton"
+                },
+                {
+                    "value": "Linen",
+                    "next": "maleDesignLinen"
+                }
+            ],
+            "conditionalOn": "maleNeckType"
+        },
+        {
+            "id": "maleDesignBlendedCotton",
+            "text": "Choose design",
+            "options": [
+                {
+                    "value": "Print",
+                    "next": "end"
+                },
+                {
+                    "value": "Thread work",
+                    "next": "end"
+                },
+                {
+                    "value": "Create own",
+                    "next": "end"
+                }
+            ],
+            "conditionalOn": "maleFabric",
+            "condition": "Blended cotton"
+        },
+        {
+            "id": "maleDesignPolyester",
+            "text": "Choose design",
+            "options": [
+                {
+                    "value": "Print",
+                    "next": "end"
+                },
+                {
+                    "value": "Thread work",
+                    "next": "end"
+                },
+                {
+                    "value": "Create own",
+                    "next": "end"
+                }
+            ],
+            "conditionalOn": "maleFabric",
+            "condition": "Polyester"
+        },
+        {
+            "id": "maleDesignCotton",
+            "text": "Choose design",
+            "options": [
+                {
+                    "value": "Thread work",
+                    "next": "end"
+                },
+                {
+                    "value": "Create own",
+                    "next": "end"
+                }
+            ],
+            "conditionalOn": "maleFabric",
+            "condition": "Cotton"
+        },
+        {
+            "id": "maleDesignLinen",
+            "text": "Choose design",
+            "options": [
+                {
+                    "value": "Thread work",
+                    "next": "end"
+                },
+                {
+                    "value": "Create own",
+                    "next": "end"
+                }
+            ],
+            "conditionalOn": "maleFabric",
+            "condition": "Linen"
+        },
+        {
+            "id": "femaleClothing",
+            "text": "Choose Clothe",
+            "options": [
+                {
+                    "value": "Kurti",
+                    "next": "femaleSize"
+                }
+            ],
+            "conditionalOn": "gender",
+            "condition": "female"
+        },
+        {
+            "id": "maleSize",
+            "text": "Enter your Size (4 details)",
+            "options": [],
+            "conditionalOn": "maleClothing",
+            "condition": "Tshirt"
+        },
+        {
+            "id": "femaleSize",
+            "text": "Enter your Size (4 details)",
+            "options": [],
+            "conditionalOn": "femaleClothing",
+            "condition": "Kurti"
+        }
+    ]
+}
