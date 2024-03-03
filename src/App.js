@@ -1,51 +1,39 @@
-import React from 'react';
-import QuestionComponent from './QuestionComponent'; // Import the QuestionComponent
-import { useState, useContext } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate, Link } from 'react-router-dom';
-import './App.css'; // Make sure to import your main CSS file
+// App.js
+import React, { useContext } from 'react';
 import { QuizContext } from './QuizContext';
-
+import QuestionComponent from './QuestionComponent';
+import './App.css'; // Import the CSS file here
 function App() {
-  const { currentQuestionIndex, questions, handleOptionSelect, goToPreviousQuestion, selectedOptions, setCurrentQuestionIndex } = useContext(QuizContext);
-  const navigate = useNavigate();
-  const goToNextQuestion = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      // Now you can use navigate because it's within a component rendered by Router
-      navigate('/results');
-    }
+  const { currentQuestionId, questions, handleOptionSelect, goBack, answers } = useContext(QuizContext);
+  const currentQuestion = questions.find(q => q.id === currentQuestionId);
+
+  const renderSelectedOptions = () => {
+    return Object.entries(answers).map(([questionId, answer], index) => (
+      <div key={index} className="selected-option">
+        {`${questionId.replace(/([A-Z])/g, ' $1').toLowerCase()}: ${answer}`} {/* This will add spaces before capital letters and convert them to lowercase */}
+      </div>
+    ));
   };
+  console.log(currentQuestionId, currentQuestion);
+  if (currentQuestionId === "end") {
+    return (
+      <div className="selected-options">
+        {renderSelectedOptions()}
+      </div>
+    );
+  }
 
-  const options = [
-    ['Red', 'Blue', 'Green', 'Yellow'],
-    ['Cat', 'Dog', 'Bird', 'Fish'],
-    ['Pizza', 'Burger', 'Pasta', 'Salad'],
-    ['Reading', 'Gaming', 'Traveling', 'Sports'],
-    ['Action', 'Comedy', 'Horror', 'Drama']
-  ];
-
-  // Render the QuestionComponent with props
   return (
     <div className="app-container">
       <div className="question-container">
         <QuestionComponent
-          question={questions[currentQuestionIndex]}
-          options={options[currentQuestionIndex]}
+          question={currentQuestion.text}
+          options={currentQuestion.options}
           onOptionSelect={handleOptionSelect}
-          selectedOption={selectedOptions[currentQuestionIndex]}
         />
-        <div className="navigation-buttons">
-          {currentQuestionIndex > 0 && (
-            <button onClick={goToPreviousQuestion}>Previous</button>
-          )}
-          {currentQuestionIndex < questions.length - 1 && (
-            <button onClick={goToNextQuestion}>Next</button>
-          )}
-          {currentQuestionIndex === questions.length - 1 && (
-            <button onClick={goToNextQuestion}>Finish</button>
-          )}
-        </div>
+        {currentQuestionId !== "gender" && (
+          <button onClick={goBack} className="back-button">Back</button>
+        )}
       </div>
     </div>
   );

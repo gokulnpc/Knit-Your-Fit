@@ -2,44 +2,82 @@
 
 .app-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
-  background: none;
-  /* Remove background */
-}
-
-.question-container {
-  text-align: center;
-  /* Center align the text */
-}
-
-.question-container .question {
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #000;
   color: white;
-  /* Set question color to white */
-  font-weight: bold;
-  /* Make question font bold */
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+  /* Make sure padding does not affect width */
+}
+
+.back-button {
+  background-color: #007bff;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  /* Space between the options and the back button */
+}
+
+/* Global button styling */
+button {
+  font-size: 1rem;
+  margin: 0 5px;
+  /* Adjust spacing between buttons if necessary */
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* Hide scrollbar */
 }
 
 .navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* Adjust the width as necessary */
+}
+
+
+
+
+
+.selected-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   margin-top: 20px;
 }
 
-.navigation-buttons button {
-  background-color: #5568FE;
-  /* Bright blue for buttons */
+.selected-option {
+  background-color: #333;
+  /* Dark background for the 'option' */
   color: white;
-  border: none;
-  padding: 10px 15px;
-  margin: 0 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  /* Text color */
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 5px 0;
+  /* Adds a slight margin between each 'option' */
+  text-align: center;
+  width: fit-content;
+  /* Width will be as wide as the content, with padding applied */
 }
 
-.navigation-buttons button:hover {
-  background-color: #3748F0;
-  /* Darker blue on hover */
+.question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  /* Set a specific width if necessary */
 }
-
-/* Add styles for selected and unselected options in QuestionComponent.css */

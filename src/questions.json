@@ -20,7 +20,8 @@
             "options": [
                 {
                     "value": "Tshirt",
-                    "next": "maleSize"
+                    "next": "maleSize",
+                    "prev": "gender"
                 }
             ],
             "conditionalOn": "gender",
@@ -31,40 +32,46 @@
             "text": "Enter your Size",
             "options": [
                 {
-                    "detail": "Sleeve length",
-                    "next": "maleColor"
+                    "value": "Sleeve length",
+                    "next": "maleColor",
+                    "prev": "maleClothing"
                 },
                 {
-                    "detail": "Shoulder Length",
-                    "next": "maleColor"
+                    "value": "Shoulder Length",
+                    "next": "maleColor",
+                    "prev": "maleClothing"
                 },
                 {
-                    "detail": "Chest",
-                    "next": "maleColor"
+                    "value": "Chest",
+                    "next": "maleColor",
+                    "prev": "maleClothing"
                 },
                 {
-                    "detail": "Length of T-shirt",
-                    "next": "maleColor"
+                    "value": "Length of T-shirt",
+                    "next": "maleColor",
+                    "prev": "maleClothing"
                 },
                 {
-                    "detail": "S",
-                    "next": "maleColor"
+                    "value": "S",
+                    "next": "maleColor",
+                    "prev": "maleClothing"
                 },
                 {
-                    "detail": "M",
-                    "next": "maleColor"
+                    "value": "M",
+                    "next": "maleColor",
+                    "prev": "maleClothing"
                 },
                 {
-                    "detail": "L",
-                    "next": "maleColor"
+                    "value": "L",
+                    "next": "maleColor",
+                    "prev": "maleClothing"
                 },
                 {
-                    "detail": "XL",
-                    "next": "maleColor"
+                    "value": "XL",
+                    "next": "maleColor",
+                    "prev": "maleClothing"
                 }
-            ],
-            "conditionalOn": "maleClothing",
-            "condition": "Tshirt"
+            ]
         },
         {
             "id": "maleColor",
@@ -72,10 +79,10 @@
             "options": [
                 {
                     "value": "White",
-                    "next": "maleSleeveStyle"
+                    "next": "maleSleeveStyle",
+                    "prev": "maleSize"
                 }
-            ],
-            "conditionalOn": "maleSize"
+            ]
         },
         {
             "id": "maleSleeveStyle",
@@ -83,14 +90,15 @@
             "options": [
                 {
                     "value": "Half",
-                    "next": "maleNeckType"
+                    "next": "maleNeckType",
+                    "prev": "maleColor"
                 },
                 {
                     "value": "Full",
-                    "next": "maleNeckType"
+                    "next": "maleNeckType",
+                    "prev": "maleColor"
                 }
-            ],
-            "conditionalOn": "maleColor"
+            ]
         },
         {
             "id": "maleNeckType",
@@ -98,22 +106,25 @@
             "options": [
                 {
                     "value": "V neck",
-                    "next": "maleFabric"
+                    "next": "maleFabric",
+                    "prev": "maleSleeveStyle"
                 },
                 {
                     "value": "Polo",
-                    "next": "maleFabric"
+                    "next": "maleFabric",
+                    "prev": "maleSleeveStyle"
                 },
                 {
                     "value": "Crew neck",
-                    "next": "maleFabric"
+                    "next": "maleFabric",
+                    "prev": "maleSleeveStyle"
                 },
                 {
                     "value": "Round neck",
-                    "next": "maleFabric"
+                    "next": "maleFabric",
+                    "prev": "maleSleeveStyle"
                 }
-            ],
-            "conditionalOn": "maleSleeveStyle"
+            ]
         },
         {
             "id": "maleFabric",
@@ -121,22 +132,25 @@
             "options": [
                 {
                     "value": "Blended cotton",
-                    "next": "maleDesignBlendedCotton"
+                    "next": "maleDesignBlendedCotton",
+                    "prev": "maleNeckType"
                 },
                 {
                     "value": "Polyester",
-                    "next": "maleDesignPolyester"
+                    "next": "maleDesignPolyester",
+                    "prev": "maleNeckType"
                 },
                 {
                     "value": "Cotton",
-                    "next": "maleDesignCotton"
+                    "next": "maleDesignCotton",
+                    "prev": "maleNeckType"
                 },
                 {
                     "value": "Linen",
-                    "next": "maleDesignLinen"
+                    "next": "maleDesignLinen",
+                    "prev": "maleNeckType"
                 }
-            ],
-            "conditionalOn": "maleNeckType"
+            ]
         },
         {
             "id": "maleDesignBlendedCotton",
@@ -144,19 +158,68 @@
             "options": [
                 {
                     "value": "Print",
-                    "next": "end"
+                    "next": "maleDesignBlendedCottonPrint",
+                    "prev": "maleFabric"
                 },
                 {
                     "value": "Thread work",
-                    "next": "end"
+                    "next": "maleDesignBlendedCottonThreadWork",
+                    "prev": "maleFabric"
                 },
                 {
                     "value": "Create own",
-                    "next": "end"
+                    "next": "maleDesignBlendedCottonCreateOwn",
+                    "prev": "maleFabric"
                 }
-            ],
-            "conditionalOn": "maleFabric",
-            "condition": "Blended cotton"
+            ]
+        },
+        {
+            "id": "maleDesignBlendedCottonPrint",
+            "text": "Choose your option",
+            "options": [
+                {
+                    "value": "Marvel",
+                    "next": "end",
+                    "prev": "maleDesignBlendedCotton"
+                },
+                {
+                    "value": "Art",
+                    "next": "end",
+                    "prev": "maleDesignBlendedCotton"
+                }
+            ]
+        },
+        {
+            "id": "maleDesignBlendedCottonThreadWork",
+            "text": "Choose your option",
+            "options": [
+                {
+                    "value": "Own design",
+                    "next": "end",
+                    "prev": "maleDesignBlendedCotton"
+                },
+                {
+                    "value": "Knitted & fitted",
+                    "next": "end",
+                    "prev": "maleDesignBlendedCotton"
+                }
+            ]
+        },
+        {
+            "id": "maleDesignBlendedCottonCreateOwn",
+            "text": "Choose your option",
+            "options": [
+                {
+                    "value": "Draw",
+                    "next": "end",
+                    "prev": "maleDesignBlendedCotton"
+                },
+                {
+                    "value": "Upload",
+                    "next": "end",
+                    "prev": "maleDesignBlendedCotton"
+                }
+            ]
         },
         {
             "id": "maleDesignPolyester",
@@ -164,19 +227,68 @@
             "options": [
                 {
                     "value": "Print",
-                    "next": "end"
+                    "next": "maleDesignPolyesterPrint",
+                    "prev": "maleFabric"
                 },
                 {
                     "value": "Thread work",
-                    "next": "end"
+                    "next": "maleDesignPolyesterThreadWork",
+                    "prev": "maleFabric"
                 },
                 {
                     "value": "Create own",
-                    "next": "end"
+                    "next": "maleDesignPolyesterCreateOwn",
+                    "prev": "maleFabric"
                 }
-            ],
-            "conditionalOn": "maleFabric",
-            "condition": "Polyester"
+            ]
+        },
+        {
+            "id": "maleDesignPolyesterPrint",
+            "text": "Choose your option",
+            "options": [
+                {
+                    "value": "Marvel",
+                    "next": "end",
+                    "prev": "maleDesignPolyester"
+                },
+                {
+                    "value": "Art",
+                    "next": "end",
+                    "prev": "maleDesignPolyester"
+                }
+            ]
+        },
+        {
+            "id": "maleDesignPolyesterThreadWork",
+            "text": "Choose your option",
+            "options": [
+                {
+                    "value": "Own design",
+                    "next": "end",
+                    "prev": "maleDesignPolyester"
+                },
+                {
+                    "value": "Knitted & fitted",
+                    "next": "end",
+                    "prev": "maleDesignPolyester"
+                }
+            ]
+        },
+        {
+            "id": "maleDesignPolyesterCreateOwn",
+            "text": "Choose your option",
+            "options": [
+                {
+                    "value": "Draw",
+                    "next": "end",
+                    "prev": "maleDesignPolyester"
+                },
+                {
+                    "value": "Upload",
+                    "next": "end",
+                    "prev": "maleDesignPolyester"
+                }
+            ]
         },
         {
             "id": "maleDesignCotton",
@@ -184,15 +296,47 @@
             "options": [
                 {
                     "value": "Thread work",
-                    "next": "end"
+                    "next": "maleDesignCottonThreadWork",
+                    "prev": "maleFabric"
                 },
                 {
                     "value": "Create own",
-                    "next": "end"
+                    "next": "maleDesignCottonCreatedOwn",
+                    "prev": "maleFabric"
                 }
-            ],
-            "conditionalOn": "maleFabric",
-            "condition": "Cotton"
+            ]
+        },
+        {
+            "id": "maleDesignCottonThreadWork",
+            "text": "Choose your option",
+            "options": [
+                {
+                    "value": "Own design",
+                    "next": "end",
+                    "prev": "maleDesignCotton"
+                },
+                {
+                    "value": "Knitted & fitted",
+                    "next": "end",
+                    "prev": "maleDesignCotton"
+                }
+            ]
+        },
+        {
+            "id": "maleDesignCottonCreatedOwn",
+            "text": "Choose your option",
+            "options": [
+                {
+                    "value": "Draw",
+                    "next": "end",
+                    "prev": "maleDesignCotton"
+                },
+                {
+                    "value": "Upload",
+                    "next": "end",
+                    "prev": "maleDesignCotton"
+                }
+            ]
         },
         {
             "id": "maleDesignLinen",
@@ -200,41 +344,47 @@
             "options": [
                 {
                     "value": "Thread work",
-                    "next": "end"
+                    "next": "maleDesignLinenThreadWork",
+                    "prev": "maleFabric"
                 },
                 {
                     "value": "Create own",
-                    "next": "end"
+                    "next": "maleDesignLinenCreateOwn",
+                    "prev": "maleFabric"
                 }
-            ],
-            "conditionalOn": "maleFabric",
-            "condition": "Linen"
+            ]
         },
         {
-            "id": "femaleClothing",
-            "text": "Choose Clothe",
+            "id": "maleDesignLinenThreadWork",
+            "text": "Choose your option",
             "options": [
                 {
-                    "value": "Kurti",
-                    "next": "femaleSize"
+                    "value": "Own design",
+                    "next": "end",
+                    "prev": "maleDesignLinen"
+                },
+                {
+                    "value": "Knitted & fitted",
+                    "next": "end",
+                    "prev": "maleDesignLinen"
                 }
-            ],
-            "conditionalOn": "gender",
-            "condition": "female"
+            ]
         },
         {
-            "id": "maleSize",
-            "text": "Enter your Size (4 details)",
-            "options": [],
-            "conditionalOn": "maleClothing",
-            "condition": "Tshirt"
-        },
-        {
-            "id": "femaleSize",
-            "text": "Enter your Size (4 details)",
-            "options": [],
-            "conditionalOn": "femaleClothing",
-            "condition": "Kurti"
+            "id": "maleDesignLinenCreateOwn",
+            "text": "Choose your option",
+            "options": [
+                {
+                    "value": "Draw",
+                    "next": "end",
+                    "prev": "maleDesignLinen"
+                },
+                {
+                    "value": "Upload",
+                    "next": "end",
+                    "prev": "maleDesignLinen"
+                }
+            ]
         }
     ]
 }

@@ -1,53 +1,57 @@
 // QuizContext.js
 import React, { useState, createContext } from 'react';
+import questionsData from './questions.json'; // Ensure the JSON file is in the correct location
+
 export const QuizContext = createContext();
 
 export const QuizProvider = ({ children }) => {
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [selectedOptions, setSelectedOptions] = useState({});
-    const [answers, setAnswers] = useState([]);
+    const [currentQuestionId, setCurrentQuestionId] = useState("gender");
+    const [answers, setAnswers] = useState({});
 
-    const saveAnswer = (answer) => {
-        setAnswers(prev => [...prev, answer]);
-    };
-    const questions = [
-        "What's your favorite color?",
-        "What's your favorite animal?",
-        "What's your favorite food?",
-        "What's your favorite hobby?",
-        "What's your favorite movie genre?"
-    ];
+    // This will show you what `questionsData.questions` is in the console
+    console.log(questionsData.questions);
 
-    // Define your options for each question, if they are different,
-    // or define them inside your components if they are the same for each question.
+    const handleOptionSelect = (value) => {
+        // Make sure `questionsData.questions` is an array before calling find
+        const question = questionsData.questions.find(q => q.id === currentQuestionId);
+        const selectedOption = question?.options.find(option => option.value === value);
 
+        setAnswers(prevAnswers => ({
+            ...prevAnswers,
+            [currentQuestionId]: value
+        }));
 
-    const handleOptionSelect = (option) => {
-        console.log('Option selected:', option);
-        setSelectedOptions({
-            ...selectedOptions,
-            [currentQuestionIndex]: option
-        });
-        saveAnswer(option);
-        console.log('Selected options:', answers);
-
+        if (selectedOption?.next) {
+            setCurrentQuestionId(selectedOption.next);
+        } else {
+            setCurrentQuestionId("end");
+        }
     };
 
-    const goToPreviousQuestion = () => {
-        setCurrentQuestionIndex(currentQuestionIndex - 1);
+    const goBack = () => {
+        const currentQuestion = questionsData.questions.find(q => q.id === currentQuestionId);
+        if (currentQuestion && currentQuestion.options.length > 0) {
+            const prevQuestionId = currentQuestion.options[0].prev; // assuming 'prev' is always present and correct
+            if (prevQuestionId) {
+                // Remove the answer for the current question
+                setAnswers(prevAnswers => {
+                    const updatedAnswers = { ...prevAnswers };
+                    delete updatedAnswers[currentQuestionId];
+                    return updatedAnswers;
+                });
+                // Go back to the previous question
+                setCurrentQuestionId(prevQuestionId);
+            }
+        }
     };
 
     return (
         <QuizContext.Provider value={{
-            currentQuestionIndex,
-            questions,
-            selectedOptions,
+            currentQuestionId,
+            questions: questionsData.questions,
             answers,
             handleOptionSelect,
-            goToPreviousQuestion,
-            setSelectedOptions, // Provide this if you need to reset selections
-            setCurrentQuestionIndex, // Provide this if you need to reset the question index
-            saveAnswer
+            goBack
         }}>
             {children}
         </QuizContext.Provider>

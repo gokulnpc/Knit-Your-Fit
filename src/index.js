@@ -1,10 +1,11 @@
+// index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import App from './App';
 import ResultPage from './ResultPage';
 import { QuizProvider } from './QuizContext';
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
